@@ -1,0 +1,38 @@
+SELECT*FROM departments ORDER BY department_ýd;
+
+CREATE TABLE DEPT1
+AS SELECT * FROM departments WHERE department_ýd<=160;
+
+
+CREATE TABLE DEPT2
+AS SELECT * FROM departments WHERE department_ýd>=100;
+
+SELECT*FROM DEPT1;
+
+SELECT*FROM DEPT1
+UNION/*TEKRAR EDEN BÝR KERE YAZAR*/
+SELECT*FROM DEPT2
+ORDER BY 1;
+
+SELECT departments_id,department_name from DEPT1
+UNION
+SELECT department_ýd,department_name from DEPT2
+ORDER BY 1;
+
+
+
+--ITERSECT % MINUS
+SELECT*FROM DEPT1
+INTERSECT
+SELECT*FROM DEPT2;
+
+
+SELECT*FROM DEPT2
+INTERSECT
+SELECT*FROM DEPT1;
+--AnB =BnA  ýntersect
+
+SELECT department_id,department_name FROM DEPT1
+INTERSECT
+SELECT department_id,department_name FROM DEPT2;
+
